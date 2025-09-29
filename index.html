@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="PoseDiff: A Unified Diffusion Model Bridging Robot Pose Estimation and Video-to-Action Control.">
+  <meta property="og:title" content="PoseDiff: A Unified Diffusion Model Bridging Robot Pose Estimation and Video-to-Action Control"/>
+  <meta property="og:description" content="PoseDiff: A Unified Diffusion Model Bridging Robot Pose Estimation and Video-to-Action Control"/>
+  <meta property="og:url" content="https://haozhuo-zhang.github.io/PoseDiff-project-page/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/first-img-0.png" />
+  <meta property="og:image:width" content="592"/>
+  <meta property="og:image:height" content="463"/>
+
+
+  <!--meta name="twitter:title" content="TWITTER BANNER TITLE META TAG"-->
+  <!--meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"-->
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!--meta name="twitter:image" content="static/images/your_twitter_banner_image.png"-->
+  <!--meta name="twitter:card" content="summary_large_image"-->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="PoseDiff, The University of Manchester, X-Humanoid, Haozhuo Zhang, NEU, Robot Pose Estimation, Video-to-Action, Inverse Dynamics, World Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>PoseDiff</title>
+  <link rel="icon" type="image/x-icon" href="static/images/first-img-0.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">PoseDiff: A Unified Diffusion Model Bridging Robot Pose Estimation and Video-to-Action Control</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://haozhuo-zhang.github.io/" target="_blank">Haozhuo Zhang</a><sup>1, 2</sup>,</span>
+                <span class="author-block">
+                  <a href="https://michelecaprio.wixsite.com/caprio" target="_blank">Michele Caprio</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    Jing Shao<sup>2, 4</sup>,</span>
+                    <span class="author-block"></span>
+                          <a href="https://github.com/jonyzhang2023" target="_blank">Qiang Zhang</a><sup>2</sup>,</span>
+                    <span class="author-block"></span>
+                      Jian Tang<sup>2</sup>,</span>
+                      <span class="author-block"></span>
+                        <a href="https://www.shanghangzhang.com/" target="_blank">Shanghang Zhang</a><sup>3*</sup>,</span><br>
+                          <span class="author-block"></span>
+                            <a href="https://panweihit.github.io/" target="_blank">Wei Pan</a><sup>1*</sup>,</span>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">
+                      <sup>1</sup>The University of Manchester&nbsp;&nbsp;
+                      <sup>2</sup>X-Humanoid&nbsp;&nbsp;
+                      <sup>3</sup>Peking University&nbsp;&nbsp;
+                      <sup>4</sup>Northeastern University
+                    </span>                    
+                    <span class="eql-cntrb">
+                      <small><br><sup>*</sup>Corresponding authors</small>
+                    </span>
+                    <br>
+                  
+                    <!-- 横排 logo -->
+                    <div class="author-logos" style="margin-top:10px; display:flex; gap:10px; justify-content:center; align-items:center;">
+                      <img src="static/images/UOM.png"" alt="Logo 1" style="height:60px;">
+                      <img src="static/images/x-humanoid.png" alt="Logo 2" style="height:60px;">
+                      <img src="static/images/pku.png" alt="Logo 3" style="height:60px;">
+                      <img src="static/images/neu.png" alt="Logo 4" style="height:60px;">
+                    </div>
+                  </div>
+                  
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2508.16943" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- GitHub Code link -->
+                    <span class="link-block">
+                      <a href="" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                              <i class="fab fa-github"></i>
+                          </span>
+                          <span>Code</span>
+                      </a>
+                  </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/first-img.png" id="tree" alt="Description of the image" style="height: 100%;">
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present PoseDiff, a conditional diffusion model that unifies robot state estimation and control within a single framework. At its core, PoseDiff maps raw visual observations into structured robot states—such as 3D keypoints or joint angles—from a single RGB image, eliminating the need for multi-stage pipelines or auxiliary modalities. Building upon this foundation, PoseDiff extends naturally to video-to-action inverse dynamics: by conditioning on sparse video keyframes generated by world models, it produces smooth and continuous long-horizon action sequences through an overlap-averaging strategy. This unified design enables scalable and efficient integration of perception and control. On the DREAM dataset, PoseDiff achieves state-of-the-art accuracy and real-time performance for pose estimation. On Libero-Object manipulation tasks, it substantially improves success rates over existing inverse dynamics modules, even under strict offline settings. Together, these results show that PoseDiff provides a scalable, accurate, and efficient bridge between perception, planning, and control in embodied AI.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="hero is-small">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Framework Comparison</h2>
+      <img src="static/images/second-img.png" id="tree" alt="Description of the image" style="height: 100%;">
+      <h2 class="subtitle has-text-centered">
+        Framework comparison between PoseDiff and existing robot pose estimation methods. HoRoPose requires depth prediction followed by keypoint estimation (44 ms per image); RoboPEPP relies on joint masking and an encoder-decoder predictor (23 ms); RoboKeyGen first estimates 2D keypoints and then lifts them to 3D via a diffusion model (54 ms). In contrast, PoseDiff directly maps a single RGB image to 3D robot keypoints in an end-to-end manner, achieving faster inference (14 ms).
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Model Architecture</h2>
+      <img src="static/images/Third-img.png" id="tree" alt="Description of the image" style="height: 100%;">
+      <h2 class="subtitle has-text-centered">
+        PoseDiff architecture. Visual features from a ResNet and timestep embeddings are fused via a condition encoder with FiLM modulation, guiding the denoising of noisy 3D keypoints into clean pose estimates.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Inverse Dynamics Model</h2>
+      <img src="static/images/forth-img.png" id="tree" alt="Description of the image" style="height: 100%;">
+      <h2 class="subtitle has-text-centered">
+        PoseDiff as an inverse dynamics model: (a) the world model generates sparse video frames from an initial image and language instruction; (b) PoseDiff fills in dense actions between frame pairs, averaging overlaps for smooth and consistent trajectories.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Experiments Results</h2>
+      <img src="static/images/table-1.png" id="tree" alt="Description of the image" style="height: 100%;">
+      <!--h2 class="subtitle has-text-centered">
+        Multi-stage training pipeline of HumanoidVerse: Stage 1 trains a teacher model via RL for single-object rearrangement. Stage 2 extends it to releasing and stepping back. Stage 3 trains a second teacher model to manipulate a second object from the end state of Stage 2. In Stage 4, the student VLA model, taking real-time visual and language inputs, is distilled from the two teacher models. The first teacher model is used to distill during the initial rearrangement, and the second after releasing and retreating. Both are unified into a single student model for full multi-object rearrangement.
+      </h2-->
+      
+      <img src="static/images/table-2.png" id="tree" alt="Description of the image" style="height: 100%;">
+      <img src="static/images/table-3.png" id="tree" alt="Description of the image" style="height: 100%;">
+      <img src="static/images/table-4.png" id="tree" alt="Description of the image" style="height: 100%;">
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Robot Pose Estimation</h2>
+
+      <div class="columns is-vcentered">
+        <div class="column">
+          <video poster="" data-src="static/videos/real-posediff.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+        </div>
+      </div>
+      <!--h2 class="subtitle has-text-centered">
+        "Move the bedside table from its position to the front side of the bed, <br>
+        then move the laptop from the bed to the desk."
+      </h2-->
+
+      <div class="columns is-vcentered">
+        <div class="column">
+          <video poster="" data-src="static/videos/real-robopepp.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+        </div>
+      </div>
+      <!--h2 class="subtitle has-text-centered">
+        "Move the laptop from the bed to the desk with an office chair, <br>
+        then move the chair from the left side of the desk to the front side of the desk."
+      </h2-->
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Comparison on Libero-Object ("Pick up the alphabet soup and place it in the basket.)</h2>
+      <!--h2 class="title is-4">"Move the pillow from the table to the center of the bed, then place the laptop on the desk next to the chair."</h2-->
+      
+      <div class="columns is-vcentered">
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/alpha_orig.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Sparse Video Frames <br> Generated by World Model
+          </h2>
+        </div>
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/alpha_posediff.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Dense Action Sequence <br> Generated by PoseDiff
+          </h2>
+        </div>
+      </div>
+      <!--h2 class="subtitle has-text-centered">
+        PoseDiff
+      </h2-->
+      
+      <div class="columns is-vcentered">
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/alpha_robopepp.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Dense Action Sequence <br> Generated by RoboPEPP
+          </h2>
+        </div>
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/alpha_seer.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Dense Action Sequence <br> Generated by Seer
+          </h2>
+        </div>
+      </div>
+      <!--h2 class="subtitle has-text-centered">
+        RoboPEPP and Seer
+      </h2-->
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Visualization on Libero-Object ("Pick up the cream cheese and place it in the basket.)</h2>
+      <!--h2 class="title is-4">"Move the pillow from the table to the center of the bed, then place the laptop on the desk next to the chair."</h2-->
+      
+      <div class="columns is-vcentered">
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/cream_orig.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Sparse Video Frames <br> Generated by World Model
+          </h2>
+        </div>
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/cream_posediff.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Dense Action Sequence <br> Generated by PoseDiff
+          </h2>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Visualization on Libero-Object ("Pick up the salad dressing and place it in the basket.)</h2>
+      <!--h2 class="title is-4">"Move the pillow from the table to the center of the bed, then place the laptop on the desk next to the chair."</h2-->
+      
+      <div class="columns is-vcentered">
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/salad_orig.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Sparse Video Frames <br> Generated by World Model
+          </h2>
+        </div>
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/salad_posediff.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Dense Action Sequence <br> Generated by PoseDiff
+          </h2>
+        </div>
+      </div>
+      <!--h2 class="subtitle has-text-centered">
+        PoseDiff
+      </h2-->
+      
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Visualization on Libero-Object ("Pick up the ketchup and place it in the basket.)</h2>
+      <!--h2 class="title is-4">"Move the pillow from the table to the center of the bed, then place the laptop on the desk next to the chair."</h2-->
+      
+      <div class="columns is-vcentered">
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/ketchup_orig.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Sparse Video Frames <br> Generated by World Model
+          </h2>
+        </div>
+        <div class="column">
+          <video poster="" data-src="static/libero_videos_filtered/ketchup_posediff.mp4"
+            controls muted loop style="width:100%; height:auto;">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Dense Action Sequence <br> Generated by PoseDiff
+          </h2>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{zhang2025humanoidverseversatilehumanoidvisionlanguage,
+        title={HumanoidVerse: A Versatile Humanoid for Vision-Language Guided Multi-Object Rearrangement}, 
+        author={Haozhuo Zhang and Jingkai Sun and Michele Caprio and Jian Tang and Shanghang Zhang and Qiang Zhang and Wei Pan},
+        year={2025},
+        eprint={2508.16943},
+        archivePrefix={arXiv},
+        primaryClass={cs.RO},
+        url={https://arxiv.org/abs/2508.16943}, 
+  }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const videos = document.querySelectorAll("video[data-src]");
+        
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const video = entry.target;
+    
+            if (entry.isIntersecting) {
+              // Load and play when entering the visible area
+              if (!video.src) {
+                video.src = video.dataset.src;
+                video.load();
+              }
+              video.play();
+            } else {
+              // Pause when leaving the visible area, but do not unload resources
+              video.pause();
+            }
+          });
+        }, { threshold: 0.25 }); // Load video only when 25% is visible
+        
+        videos.forEach(video => observer.observe(video));
+      });
+    </script>    
+      
+      
+  </body>
+  </html>

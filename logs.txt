@@ -1,0 +1,11 @@
+10 tasks in the benchmark libero object: 
+ID is 0. bddl file name: pick up the alphabet soup and place it in the basket.bddl
+ID is 1. bddl file name: pick up the cream cheese and place it in the basket.bddl
+ID is 2. bddl file name: pick up the salad dressing and place it in the basket.bddl
+ID is 3. bddl file name: pick up the bbq sauce and place it in the basket.bddl
+ID is 4. bddl file name: pick up the ketchup and place it in the basket.bddl
+ID is 5. bddl file name: pick up the tomato sauce and place it in the basket.bddl
+ID is 6. bddl file name: pick up the butter and place it in the basket.bddl
+ID is 7. bddl file name: pick up the milk and place it in the basket.bddl
+ID is 8. bddl file name: pick up the chocolate pudding and place it in the basket.bddl
+ID is 9. bddl file name: pick up the orange juice and place it in the basket.bddl
